@@ -6,6 +6,7 @@ const props = defineProps({
 })
 
 const pokemon = ref(0)
+const shiny = ref(false)
 
 async function fetchAPokemon() {
   const response = await fetch(props.url)
@@ -16,9 +17,14 @@ onMounted(fetchAPokemon)
 </script>
 
 <template>
-    <div v-if="pokemon">{{ pokemon.name }}</div>
+    <div v-if="pokemon" class="pokemon">{{ pokemon.name }}</div>
 </template>
 
 <style scoped>
-
+.pokemon {
+  display: block;
+  border: solid black 2px;
+  margin: 5px;
+  padding: 5px;
+}
 </style>
